@@ -1,5 +1,29 @@
+import { decrement, increment } from "./redux/features/counter/CounterSlice";
+import { useAppDispatch, useAppSelector } from "./redux/hook";
+
 function App() {
-  return <h1>tech-net</h1>;
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
+
+  return (
+    <div>
+      <div>
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>
+        <button
+          aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default App;
