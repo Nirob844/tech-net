@@ -1,27 +1,11 @@
-import { decrement, increment } from "./redux/features/counter/CounterSlice";
-import { useAppDispatch, useAppSelector } from "./redux/hook";
+import { Toaster } from './components/ui/Toaster';
+import MainLayout from './layouts/MainLayout';
 
 function App() {
-  const count = useAppSelector((state) => state.counter.value);
-  const dispatch = useAppDispatch();
-
   return (
     <div>
-      <div>
-        <button
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          Increment
-        </button>
-        <span>{count}</span>
-        <button
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          Decrement
-        </button>
-      </div>
+      <Toaster />
+      <MainLayout />
     </div>
   );
 }
